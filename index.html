@@ -182,6 +182,51 @@ section{position:relative;z-index:5}
 .rpb-num{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:var(--terra2);line-height:1;letter-spacing:.04em}
 .rpb-label{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold2)}
 
+/* ─── RACE RESULTS ─── */
+.results-section{padding:72px 0 56px;background:linear-gradient(180deg,transparent,rgba(129,186,91,.04) 50%,transparent)}
+.results-header{display:flex;align-items:center;gap:16px;margin-bottom:8px;flex-wrap:wrap}
+.results-finish{
+  display:inline-flex;align-items:center;gap:12px;
+  background:linear-gradient(135deg,rgba(129,186,91,.12),rgba(129,186,91,.04));
+  border:1px solid rgba(129,186,91,.35);border-radius:14px;
+  padding:18px 28px;margin-bottom:28px;
+}
+.results-finish-time{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.4rem,5vw,3.6rem);color:var(--nx-green);line-height:1}
+.results-finish-label{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:2px}
+.results-finish-place{font-size:1rem;color:var(--cream);font-weight:600}
+.results-table-wrap{
+  background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);
+  border-radius:16px;overflow:hidden;
+}
+.results-table{width:100%;border-collapse:collapse}
+.results-table thead th{
+  font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--terra2);
+  padding:14px 18px;text-align:left;border-bottom:1px solid rgba(255,255,255,.08);
+  background:rgba(212,98,42,.05);font-weight:600;
+}
+.results-table tbody td{
+  padding:12px 18px;font-size:.95rem;color:var(--cream);
+  border-bottom:1px solid rgba(255,255,255,.04);
+  transition:background .2s;
+}
+.results-table tbody tr:hover td{background:rgba(212,98,42,.06)}
+.results-table tbody tr:last-child td{border-bottom:none}
+.results-table .split-label{color:var(--muted);font-size:.9rem}
+.results-table .split-time{font-family:'Bebas Neue',sans-serif;font-size:1.15rem;letter-spacing:.03em}
+.results-table .split-total{font-family:'Bebas Neue',sans-serif;font-size:1.15rem;color:var(--gold2);letter-spacing:.03em}
+.results-table .split-na{color:rgba(245,237,224,.2);font-size:.85rem}
+.results-table .finish-row td{background:rgba(129,186,91,.06);font-weight:600}
+.results-table .finish-row .split-total{color:var(--nx-green);font-size:1.3rem}
+.results-meta{display:flex;gap:24px;margin-top:18px;flex-wrap:wrap}
+.results-meta-item{font-size:.8rem;color:var(--muted)}
+.results-meta-item strong{color:var(--cream)}
+@media(max-width:720px){
+  .results-table thead th{padding:10px 12px;font-size:.6rem}
+  .results-table tbody td{padding:9px 12px;font-size:.85rem}
+  .results-table .split-time,.results-table .split-total{font-size:1rem}
+  .results-table .finish-row .split-total{font-size:1.1rem}
+}
+
 /* ─── ROUTE ─── */
 .rs{padding:72px 0;background:linear-gradient(180deg,transparent,rgba(212,98,42,.04) 50%,transparent)}
 .route-scroll{
@@ -371,6 +416,7 @@ footer{position:relative;z-index:5;border-top:1px solid rgba(255,255,255,.05);pa
   <span class="nav-brand">ROMA MMXXVI</span>
   <ul class="nav-links">
     <li><a href="#marathon">Marathon</a></li>
+    <li><a href="#ergebnis">Ergebnis</a></li>
     <li><a href="#strecke">Strecke</a></li>
     <li><a href="#unterkunft">Unterkunft</a></li>
     <li><a href="#kosten">Kosten</a></li>
@@ -382,6 +428,7 @@ footer{position:relative;z-index:5;border-top:1px solid rgba(255,255,255,.05);pa
 </nav>
 <div class="nav-mobile" id="mobNav">
   <a href="#marathon" onclick="document.getElementById('mobNav').classList.remove('open')">Marathon</a>
+  <a href="#ergebnis" onclick="document.getElementById('mobNav').classList.remove('open')">Ergebnis</a>
   <a href="#strecke" onclick="document.getElementById('mobNav').classList.remove('open')">Strecke</a>
   <a href="#unterkunft" onclick="document.getElementById('mobNav').classList.remove('open')">Unterkunft</a>
   <a href="#kosten" onclick="document.getElementById('mobNav').classList.remove('open')">Kosten</a>
@@ -477,6 +524,87 @@ data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBAUEBAYFBQUGBgYHCQ4JC
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- RACE RESULTS -->
+<section class="results-section rv" id="ergebnis">
+  <div class="ct">
+    <p class="slabel">Das Ergebnis</p>
+    <h2 class="stitle">Thomas hat's <em>geschafft!</em></h2>
+    <div class="results-finish">
+      <div>
+        <span class="results-finish-label">Zielzeit</span>
+        <div class="results-finish-time">04:57:09</div>
+      </div>
+      <div>
+        <span class="results-finish-label">Platzierung</span>
+        <div class="results-finish-place">Platz 25.209</div>
+      </div>
+    </div>
+    <div class="results-table-wrap">
+      <table class="results-table">
+        <thead>
+          <tr>
+            <th>Abschnitt</th>
+            <th>Split</th>
+            <th>Gesamtzeit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="split-label">5 km</td>
+            <td class="split-time">00:33:06</td>
+            <td class="split-total">00:33:06</td>
+          </tr>
+          <tr>
+            <td class="split-label">10 km</td>
+            <td class="split-time">00:33:15</td>
+            <td class="split-total">01:06:20</td>
+          </tr>
+          <tr>
+            <td class="split-label">15 km</td>
+            <td class="split-time">00:32:15</td>
+            <td class="split-total">01:38:35</td>
+          </tr>
+          <tr>
+            <td class="split-label">Halbmarathon (21,097 km)</td>
+            <td class="split-time">00:42:14</td>
+            <td class="split-total">02:20:49</td>
+          </tr>
+          <tr>
+            <td class="split-label">25 km</td>
+            <td class="split-time">00:26:44</td>
+            <td class="split-total">02:47:32</td>
+          </tr>
+          <tr>
+            <td class="split-label">30 km</td>
+            <td class="split-na">—</td>
+            <td class="split-na">—</td>
+          </tr>
+          <tr>
+            <td class="split-label">35 km</td>
+            <td class="split-time">01:11:35</td>
+            <td class="split-total">03:59:07</td>
+          </tr>
+          <tr>
+            <td class="split-label">40 km</td>
+            <td class="split-time">00:40:27</td>
+            <td class="split-total">04:39:33</td>
+          </tr>
+          <tr class="finish-row">
+            <td class="split-label">Ziel (42,195 km)</td>
+            <td class="split-time">00:17:36</td>
+            <td class="split-total">04:57:09</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="results-meta">
+      <div class="results-meta-item"><strong>Startnummer:</strong> 4549</div>
+      <div class="results-meta-item"><strong>Rennen:</strong> Acea Run Rome The Marathon</div>
+      <div class="results-meta-item"><strong>Datum:</strong> 22. März 2026</div>
     </div>
   </div>
 </section>
